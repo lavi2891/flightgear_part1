@@ -1,7 +1,10 @@
 # flightgear_part1
 cs advance programming project part_1. make the plane take off!  
 
-the project is a compiler for flightgear simulator instructions.  
+This project is a compiler for flightgear simulator instructions.  
+## How to use:
+Write txt file with instructions (below you can read the supported commands)  
+Compile -> run the file with path to your tx file as argument -> open flightgear
 
 the project support the following commands:
 -----------------------------------------------------------------------------------------------------------------------------
