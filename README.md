@@ -33,8 +33,10 @@ set variable x with the value of the given expressin.
 *****************************************************************************************************************************
 ### 4. x = expression  
 after variable were create with Var command (above) it's value can be change. (there is no meaning changing from_sim type variable, but it can be done).  
-e.g.:``` Var x = 0
-x = 1```
+e.g.:
+```
+x = y + 7
+```
 *****************************************************************************************************************************
 ### 5. Sleep(expression)  
 calculate x = expression value. wait for x milliseconds before continue to next line.  
@@ -64,8 +66,7 @@ the valid condition_operators are: >, >=, <, <=, ==, !=
 continue to execute the commands in the scope {} as long as the condition is true
 e.g.:
 ```
-While x < 1000
-{    
+While x < 1000 {    
 ....  
 }
 ````
@@ -74,8 +75,7 @@ While x < 1000
 execute the commands in the scope {} if the condition is true
 e.g.:
 ```
-If x < 1000
-{    
+If x < 1000 {    
 ....  
 }
 ````
