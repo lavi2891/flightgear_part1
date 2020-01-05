@@ -6,9 +6,16 @@ the project is a compiler for flightgear simulator instructions.
 the project support the following commands:
 -----------------------------------------------------------------------------------------------------------------------------
 1. OpendataServer(port/expression to calculate port - no variable are allowed!)  
-open connection to flightgear in the geiven port (or expression value) and get specific values from the simulator.
+open connection to flightgear in the geiven port (or expression value) and get specific values from the simulator.  
 **to get those, first add the attached generic_small.xml file to flightgear data/protocol directory**.
-*has to be the first command!*
+*has to be the first command!*  
+'''sh
+OpendataServer(8080)  
+'''
+or 
+'''sh
+OpendataServer(8000 + 80)  
+'''
 *****************************************************************************************************************************
 2. connectControlClient("ip",port/expression to calculate port - no variable are allowed!)  
 open connection to flightgear and send commands when needed.
