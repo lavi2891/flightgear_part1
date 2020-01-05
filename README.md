@@ -8,12 +8,12 @@ the project support the following commands:
 ### 1. OpendataServer(port/expression to calculate port - no variable are allowed!)  
 open connection to flightgear in the geiven port (or expression value) and get specific values from the simulator.  
 **to get those, first add the attached generic_small.xml file to flightgear data/protocol directory**.  
-**has to be the first command!**  
+**has to be the first command!**.  
 e.g.: ```OpendataServer(8080)```  or  ```OpendataServer(8000 + 80)```
 *****************************************************************************************************************************
 ### 2. ConnectControlClient("ip",port/expression to calculate port - no variable are allowed!)  
 open connection to flightgear and send commands when needed.  
-**has to be the second command!**
+**has to be the second command!**.  
 e.g.: ```ConnectControlClient("1.2.3.4",8081)``` or ```ConnectControlClient("1.2.3.4",8000 + 81)```
 *****************************************************************************************************************************
 ### 3. Var command - by the following syntax:  
