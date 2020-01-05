@@ -9,6 +9,7 @@ the project support the following commands:
 open connection to flightgear in the geiven port (or expression value) and get specific values from the simulator.  
 **to get those, first add the attached generic_small.xml file to flightgear data/protocol directory**.
 *has to be the first command!*  
+* e.g.:
 ```
 OpendataServer(8080)  
 ```  
@@ -17,22 +18,37 @@ or
 OpendataServer(8000 + 80)  
 ```
 *****************************************************************************************************************************
-2. connectControlClient("ip",port/expression to calculate port - no variable are allowed!)  
-open connection to flightgear and send commands when needed.
+2. ConnectControlClient("ip",port/expression to calculate port - no variable are allowed!)  
+open connection to flightgear and send commands when needed.  
 *has to be the second command!*
+* e.g.:
+```
+ConnectControlClient("1.2.3.4",8081)  
+```  
+or  
+```
+ConnectControlClient("1.2.3.4",8000 + 81)  
+```
 *****************************************************************************************************************************
 3. Var command - by the following syntax:
 *********************
 - variable valid name has to start with letter and contain only letters, digits and _
 *********************
-a. Var x -> "simulator_path"  
+  a. Var x -> sim("simulator_path")  
 set variable x with default value of (double type)0. each time the value of x will change - the change will be sent to  flightgear simulator. (below: to_sim type variable).
+  ```
+  Var x -> sim("/sim/time/warp")  
+  ```
 *********************
-b. Var x <- "simulator_path"  
-set variable x with default value of (double type)0. each time the value of x will be needed - it will be drawn from the given path of flightgear simulator. (below: from_sim type variable).
+  b. Var x <- "simulator_path"  
+set variable x with default value of (double type)0. each time the value of x will be needed - it will be drawn from the given path of flightgear simulator. (below: from_sim type variable).  
+  ```
+  Var x <- sim("/sim/time/warp")  
+  ```
 *********************
-c. Var x = expression  
+  c. Var x = expression  
 set variable x with the value of the given expressin.
+  ``` Var x = 1  ``` or ``` Var x = y + 3```
 *****************************************************************************************************************************
 4. x = expression  
 after variable were create with Var command (above) it's value can be change. (there is no meaning changing from_sim type variable, but it can be done).
