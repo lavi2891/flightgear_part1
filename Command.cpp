@@ -4,7 +4,9 @@
  * Scope functions
  */
 int Scope::execute() {
+    //update symbol_map by upper_symbol_map
     if (!upper_symbol_map->empty()) {
+        //insert - doesn't override parameters which were created directly to the symbol_map
         symbol_map.insert(upper_symbol_map->begin(), upper_symbol_map->end());
     }
     for (auto & iter : cmd_list) {

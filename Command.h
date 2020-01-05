@@ -50,13 +50,15 @@ public:
     Scope(map <string, Variable*> *input_map) { upper_symbol_map = input_map; };
     //destructor - still need some work
     ~Scope(){
-        for (auto & iter: symbol_map){
-            if (upper_symbol_map == nullptr || upper_symbol_map->find(iter.first) == upper_symbol_map->end()){
-                delete iter.second;
-            }
-        }
         for (auto & iter: cmd_list) {
             delete iter;
+        }
+        for (auto & iter: symbol_map){
+            //if upper map is empty || no such variable in upper map || not the same variable as upper map
+            if (upper_symbol_map == nullptr || upper_symbol_map->find(iter.first) == upper_symbol_map->end() ||
+                    (*upper_symbol_map)[iter.first]->calculate() != symbol_map[iter.first]->calculate()){
+                delete iter.second;
+            }
         }
     };
 
@@ -65,7 +67,7 @@ public:
         upper_symbol_map = nullptr;
     }
     //return pointers to maps
-    map <string, Variable*> *get_symbol_table() {return &symbol_map;};;
+    map <string, Variable*> *get_symbol_table() {return &symbol_map;};
     //set vector by file
     static void lexer(const string& file_name, vector<string> *v);
     static void condition_lexer(ifstream *fptr, vector<string> *v);
