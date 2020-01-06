@@ -5,6 +5,13 @@ This project is a compiler for flightgear simulator instructions.
 ## How to use:
 Write txt file with instructions (below you can read the supported commands)  
 Compile -> run the file with path to your tx file as argument -> open flightgear
+Compilation: open terminal in the files' folder and run ```g++ -std=c++14 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.out -pthread``` later run ```./a.out file_path``` and open the simulator.
+In simulator setting -> additional settings box, writes those lines before launch:
+```
+--generic=socket,out,10,127.0.0.1,5400,tcp,generic_small   
+--telnet=socket,in,10,127.0.0.1,5402,tcp
+```  
+
 
 the project support the following commands:
 -----------------------------------------------------------------------------------------------------------------------------
