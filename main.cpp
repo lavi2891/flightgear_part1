@@ -1,5 +1,5 @@
 #include "main.h"
-
+//israel was here
 //global variables
 //mutex
 mutex connection_mutex;
